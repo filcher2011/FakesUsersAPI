@@ -201,10 +201,12 @@
                 const selectedValue = select.value;
                 const langValue = lang.value;
                 const inputValue = input.value;
-                if (selectedValue == "fake_name" || selectedValue == "fake_lastname" || selectedValue == "fake_addres") {
-                    link = '/api/' + selectedValue + '/' + langValue + '/' + inputValue;
+                if (selectedValue == "fake_name" || selectedValue == "fake_lastname") {
+                    link = '/api/' + selectedValue + '/?lang=' + langValue + '&gender=' + inputValue;
+                } else if (selectedValue == "fake_addres"){
+                    link = '/api/' + selectedValue + '/?lang=' + langValue + '&full=' + inputValue;
                 } else {
-                    link = '/api/' + selectedValue + '/' + langValue + '/';
+                    link = '/api/' + selectedValue + '/?lang=' + langValue + '/';
                 }
                 
                 window.open(link, '_blank')
